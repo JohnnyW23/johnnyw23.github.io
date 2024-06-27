@@ -60,7 +60,7 @@ $(()=>{
     <i class="fa-solid fa-star"></i>'
   ]
 
-  function generateViews(min, max) {
+  function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
@@ -70,21 +70,36 @@ $(()=>{
         [arr[i], arr[j]] = [arr[j], arr[i]]; // Troca os elementos arr[i] e arr[j]
     }
   }
+
+  function generateNewTag(){
+    let newTag;
+    let dice = randomNumber(1, 10);
+    
+    if(dice == 1)
+      newTag = '<div class="new-tag"><p>NEW!</p></div>'
+    else
+      newTag = ''
+
+      return newTag;
+  }
   var catalogue = baseCatalogue;
   shuffleArray(catalogue);
   catalogue.unshift({})
 
   for(let i = 1; i < catalogue.length; i++){
     let rating = movieRatings[Math.floor(Math.random() * movieRatings.length)];
-    let views = generateViews(10000, 800000);
+    let views = randomNumber(10000, 800000);
 
     if(i % 28 != 0){
+      let newTag = generateNewTag();
+
       $('.main').append('\
       <div class="movie-wrapper">\
         <div class="movie" id="movie-' + i + '">\
           <div class="image" title=\'' + 'WATCH "' + catalogue[i].title.toUpperCase() + '" ON YOUR FAVORITE STREAMING SERVICE RIGHT NOW!\'>\
-            <img src="' + catalogue[i].image + '">\
-            <div class="image-shadow"></div>\
+            <img src="' + catalogue[i].image + '">'
+            + newTag +
+            '<div class="image-shadow"></div>\
           </div>\
           <div class="movie-info">\
             <div class="movie-rating">\

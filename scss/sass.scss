@@ -399,6 +399,24 @@ div.movie-wrapper{
         height: calc(100% - 3px);
         background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .8));
       }
+      .new-tag{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        padding: 8px 3px 3px 3px;
+        background-color: green;
+        width: 45px;
+        height: 45px;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 50%);
+
+        p{
+          transform: rotate(45deg);
+          font-size: 12px;
+          position: absolute;
+          top: 10px;
+          right: 0;
+        }
+      }
     }
     .movie-rating{
       position: relative;
