@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Scraping Project</title>
+    <link rel="stylesheet" href="scss/sass.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <h2><a href=""><i class="fa-solid fa-clapperboard"></i>Filmalyze</a></h2>
+        </div>
+        <div class="search-engine">
+          <input type="text" placeholder="Search for title or genre...">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <div class="clear"></div>
+        </div>
+        <nav class="menu-categorias">
+          <ul>
+            <li>
+              <a href=""><i class="fa-solid fa-crown"></i>TOP MOVIES</a>
+              <div class="submenu">
+                <ul>
+                  <li><a href="">Today</a></li>
+                  <li><a href="">This week</a></li>
+                  <li><a href="">This month</a></li>
+                  <li><a href="">This year</a></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a href=""><i class="fa-solid fa-plus"></i>MOST RECENT</a>
+              <div class="submenu">
+                <ul>
+                  <li><a href="">Month catalogue</a></li>
+                  <li><a href="">By year</a></li>
+                  <li><a href="">By decade</a></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a href=""><i class="fa-solid fa-star"></i>TOP RATED</a>
+              <div class="submenu">
+                <ul>
+                  <li><a href="">Top rated</a></li>
+                  <li><a href="">Most voted</a></li>
+                  <li><a href="">Most recommended</a></li>
+                  <li><a href="">Most profitable</a></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a href=""><i class="fa-solid fa-list"></i>MY LIST</a>
+              <div class="submenu">
+                <ul>
+                  <li><a href="">Edit list</a></li>
+                  <li><a href="">My notepad</a></li>
+                  <li><a href="">My reviews</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+        <nav class="menu-mobile">
+          <div class="menu-bar">
+            <div class="bar-1"></div>
+            <div class="bar-2"></div>
+            <div class="bar-3"></div>
+          </div>
+          <ul class="main-ul">
+            <li class="user-li">
+              <div class="user-area">
+                <div class="user-avatar" title="Hello, FirstName! You have 3 new notifications.">
+                  <div class="notificacoes">
+                    <p>3</p>
+                  </div>
+                  <a href=""><i class="fa-solid fa-user"></i></a>
+                </div>
+                <div class="username">
+                  <h4>Hello, FirstName!</h4>
+                  <a href="">Access my account</a>
+                </div>
+                <div class="configuracoes">
+                  <a href=""><i class="fa-solid fa-gear"></i></a>
+                </div>
+              </div>
+            </li>
+            <li class="search-li">
+              <div class="search-engine search-mobile">
+                <input type="text" placeholder="Search for title or genre...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <div class="clear"></div>
+              </div>
+            </li>
+            <li>
+              <p>TOP MOVIES</p>
+              <div class="submenu">
+                <ul>
+                  <li><a href="">Today</a></li>
+                  <li><a href="">This week</a></li>
+                  <li><a href="">This month</a></li>
+                  <li><a href="">This year</a></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <p>MOST RECENT</p>
+              <div class="submenu">
+                <ul>
+                  <li><a href="">Month catalogue</a></li>
+                  <li><a href="">By year</a></li>
+                  <li><a href="">By decade</a></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <p>TOP RATED</p>
+              <div class="submenu">
+                <ul>
+                  <li><a href="">Top rated</a></li>
+                  <li><a href="">Most voted</a></li>
+                  <li><a href="">Most recommended</a></li>
+                  <li><a href="">Most profitable</a></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <p>MY LIST</p>
+              <div class="submenu">
+                <ul>
+                  <li><a href="">Edit list</a></li>
+                  <li><a href="">My notepad</a></li>
+                  <li><a href="">My reviews</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="user-area">
+          <div class="user-avatar" title="Hello, FirstName! You have 3 new notifications.">
+            <div class="notificacoes">
+              <p>3</p>
+            </div>
+            <a href=""><i class="fa-solid fa-user"></i></a>
+          </div>
+          <div class="username">
+            <h4>Hello, FirstName!</h4>
+            <a href="">Access my account</a>
+          </div>
+          <div class="configuracoes">
+            <a href=""><i class="fa-solid fa-gear"></i></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-mask"></div>
+
+    <section class="hero">
+      <div class="container">
+        <div class="apresentacao">
+          <h1>Explore the captivating world of cinema</h1>
+          <h2>Titles, synopses, and ratings — all in one place!</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus velit repellat animi corrupti tenetur? Fugiat, repellendus dolore distinctio consequatur, culpa id dicta molestias sequi tenetur recusandae, obcaecati exercitationem laudantium rem. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, eligendi quod!</p>
+          <button class="hero-cta">
+            <i class="fa-solid fa-circle-arrow-right"></i>
+            <p>CHECK OUT TOP MOVIES!</p>
+          </button>
+        </div>
+        <div class="features-wrapper">
+          <div class="features">
+            <div class="feature-box">
+              <i class="fa-solid fa-binoculars"></i>
+              <h1>New Exploration Mode by TeraPod</h1>
+            </div>
+            <div class="feature-box">
+              <i class="fa-regular fa-face-smile"></i>
+              <h1>Ratings and Reviews by Renowed Authors</h1>
+            </div>
+            <div class="feature-box">
+              <i class="fa-solid fa-heart"></i>
+              <h1>Favorite Lists (Including +Socials Feature)</h1>
+            </div>
+            <div class="feature-box">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <h1>Personalized Recommendations</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main"></section>
+
+    <section class="descriptions"></section>
+
+    <footer>
+      <div class="container">
+        <div class="logo-footer">
+          <h2><a href=""><i class="fa-solid fa-clapperboard"></i>Filmalyze</a></h2>
+          <p>Explore the captivating world of cinema. Titles, synopses, and ratings — all in one place!</p>
+        </div>
+        <div class="footer-links">
+          <ul>
+              <li><a href="">About Us</a></li>
+              <li><a href="">Contact</a></li>
+              <li><a href="">Terms of Use</a></li>
+              <li><a href="">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <p>Follow us on social media:</p>
+          <ul class="social-icons">
+              <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+        <div class="footer-copyright">
+          <p>2024 &copy; Filmalyze Team - All Rights Reserved</p>
+        </div>
+        <div class="author">
+          <p>Created by Davi Nascimento <a href="https://www.linkedin.com/in/davinasc/" target="_blank"><i class="fa-brands fa-linkedin"></i></a><a href="https://github.com/JohnnyW23" target="_blank"><i class="fa-brands fa-square-github"></i></a></p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="scroll-up-button">
+      <i class="fa-solid fa-angles-up"></i>
+    </div>
+
+    <script src="js/movies.js"></script>
+    <script src="js/functions.js"></script>
+  </body>
+</html>
