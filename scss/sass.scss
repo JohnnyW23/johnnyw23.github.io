@@ -28,6 +28,10 @@ body{
 .clear{
   clear: both;
 }
+.top-tag_all{
+  background: linear-gradient(to left, #f00, #f00, #800);
+  color: #fff;
+}
 p{
   text-align: justify
 }
@@ -133,7 +137,7 @@ header{
             display: inline-block;
             align-content: center;
             color: white;
-            padding: 10px 16px;
+            padding: 10px 12px;
 
             i{
               margin-right: 8px;
@@ -263,7 +267,7 @@ section.hero{
   background-attachment: fixed;
   border-bottom: 3px solid #3f0000;
   position: relative;
-  top: 62px;
+  top: 58px;
 
   &::before{
     position: absolute;
@@ -302,7 +306,7 @@ section.hero{
         margin-top: 30px;
       }
       .hero-cta{
-        margin-top: 20px;
+        margin-top: 40px;
         padding: 11px 15px 11px 15px;
         font-size: 16px;
         border-radius: 30px;
@@ -399,22 +403,20 @@ div.movie-wrapper{
         height: calc(100% - 3px);
         background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .8));
       }
-      .new-tag{
+      .top-tag{
+        width: 100%;
         position: absolute;
         top: 0px;
         right: 0px;
-        padding: 8px 3px 3px 3px;
-        background-color: green;
-        width: 45px;
-        height: 45px;
-        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 50%);
+        background: linear-gradient(to left, #f00, #f00, #800);
+        color: #fff;
+        @extend .top-tag_all;
 
         p{
-          transform: rotate(45deg);
           font-size: 12px;
-          position: absolute;
-          top: 10px;
-          right: 0;
+          text-align: center;
+          padding: 2px 0;
+          font-weight: 600;
         }
       }
     }
@@ -452,12 +454,14 @@ div.movie-banner-wrapper{
     margin: 50px auto;
     padding: 8px;
     display: flex;
+    border-top-left-radius: 30px;
 
     .image{
       width: 33%;
       float: left;
       position: relative;
       cursor: pointer;
+      border-top-left-radius: 30px;
 
       img{
         width: 100%;
@@ -472,6 +476,20 @@ div.movie-banner-wrapper{
         border-radius: 30px 0 0 0px;
         border-bottom: 8px solid #3f0000;
         background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .85));
+      }
+      .top-tag{
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        border-top-left-radius: 30px;
+
+        p{
+          font-size: 16px;
+          text-align: center;
+          padding: 10px 0;
+          font-weight: 600;
+        }
       }
     }
     .movie-banner-info{
@@ -539,22 +557,41 @@ div.movie-banner-wrapper{
         .movie-rating{
           margin-top: 5px;
           padding: 15px;
-          font-size: 25px;
+          font-size: 18px;
           text-align: center;
-          color: #fbff00;
+
+          .movie-score{
+            padding: 6px;
+            border-radius: 8px;
+            margin-right: 8px;
+          }
+          i{
+            color: #fbff00;
+          }
         }
         .title{
           text-align: center;
-          font-size: 22px;
-          letter-spacing: 4px;
-          width: 90%;
-          margin: 0 auto;
-          padding-bottom: 20px;
+          font-size: 18px;
+          letter-spacing: 2px;
+        }
+        .movie-details{
+          width: calc(100% - 60px);
+          margin: 10px auto 0 auto;
+          color: #636363;
           border-bottom: 2px solid #1f1a1a;
+          font-style: italic;
+          
+          p{
+            font-size: 18px;
+
+            &:last-of-type{
+              padding-bottom: 8px;
+            }
+          }
         }
         .description{
           font-size: 18px;
-          line-height: 30px;
+          line-height: 25px;
           padding: 10px 30px;
         }
       }
@@ -600,39 +637,57 @@ div.movie-banner-wrapper{
   left: 0;
   width: 100%;
   height: 100vh;
-  padding: 0 2%;
   background-color: rgba($color: #000000, $alpha: 0.8);
-  z-index: 3;
+  z-index: 5;
   display: none;
 
   .description{
     position: relative;
     top: 50%;
     left: 50%;
-    max-width: 800px;
+    max-width: 1000px;
     transform: translate(-50%, -50%);
     background-color: white;
     color: black;
     z-index: 3;
     display: none;
 
+    .iframe-wrapper{
+      background-color: #111;
+      text-align: center;
+      iframe{
+        width: 80% !important;
+        height: 30vh !important;
+      }
+    }
+
     .description-header{
+      position: relative;
       padding: 6px;
-      background-color: #0f0f0f;
+      background: linear-gradient(to bottom, #0f0f0f, #191919, #222);
 
       h3{
         color: white;
         font-weight: normal;
         font-size: 18px;
         margin-left: 4px;
-
-        span{
-          float: right;
-          background-color: black;
-          width: 25px;
-          text-align: center;
-          cursor: pointer;
-        }
+        max-width: calc(100% - 40px);
+      }
+      .movie-release{
+        color: #636363;
+        margin-left: 4px;
+        font-style: italic;
+      }
+      .description-close-button{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 18px;
+        color: white;
+        background-color: black;
+        width: 25px;
+        text-align: center;
+        cursor: pointer;
       }
     }
     .description-body{
@@ -656,16 +711,28 @@ div.movie-banner-wrapper{
 
       .description-rating{
         span{
+          padding: 3px;
+          border-radius: 4px;
+          margin-right: 3px;
+
           i{
             margin-left: 15px;
             margin-right: 3px;
           }
         }
       }
+      .movie-details{
+        margin-top: 10px;
 
-      p{
+        p{
+          font-style: italic;
+          color: #444;
+        }
+      }
+
+      > p{
         padding: 10px 0;
-        line-height: 22px;
+        line-height: 18px;
       }
     }
     .description-footer{
@@ -676,6 +743,8 @@ div.movie-banner-wrapper{
 
       a{
         color: black;
+        text-align: center;
+        padding: 0 3px;
 
         &:hover{
           text-decoration: underline;
@@ -950,6 +1019,25 @@ div.scroll-up-button{
     }
   }
 
+  div.movie-banner-wrapper{
+    .movie-banner{
+      .movie-banner-info{
+        .movie-banner-body{
+          .movie-rating{
+            margin: 15px 0 5px 0;
+            padding: 5px;
+            font-size: 16px;
+
+          }
+          .title{
+            font-size: 16px;
+            letter-spacing: 0;
+          }
+        }
+      }
+    }
+  }
+
   footer{
     .container{
       padding: 0;
@@ -1044,15 +1132,10 @@ div.scroll-up-button{
           height: calc(100% - 61.5px);
           padding: 15px 0 5px 0;
   
-          .movie-rating{
-            margin-top: 5px;
-            padding: 5px;
-            font-size: 18px;
-          }
-          .title{
-            font-size: 18px;
-            letter-spacing: 0;
-            padding-bottom: 10px;
+          .movie-details{
+            p{
+              font-size: 16px;
+            }
           }
           .description{
             font-size: 16px;
@@ -1078,6 +1161,7 @@ div.scroll-up-button{
       }
     }
   }
+
   footer{
     .container{
       grid-template-columns: 1fr;
@@ -1103,7 +1187,7 @@ div.scroll-up-button{
   }
 }
 
-@media screen and (max-width: 762px){
+@media screen and (max-width: 768px){
   div.movie-wrapper{
     width: calc(100% / 4);
   }
@@ -1151,6 +1235,22 @@ div.scroll-up-button{
               height: calc(100% - 5px);
               background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
             }
+            .top-tag{
+              width: 100%;
+              position: absolute;
+              top: 0px;
+              right: 0px;
+      
+              p{
+                font-size: 12px;
+                text-align: center;
+                padding: 2px 0;
+                font-weight: 600;
+              }
+            }
+          }
+          .movie-details{
+            width: calc(90%);
           }
           .description{
             padding: 10px 5%;
@@ -1284,5 +1384,17 @@ div.scroll-up-button{
 @media screen and (max-width: 350px){
   div.movie-wrapper{
     width: 50%;
+  }
+}
+
+@media screen and (max-height: 667px){
+  .descriptions{
+    .description{
+      .iframe-wrapper{
+        iframe{
+          width: 80% !important;
+        }
+      }
+    }
   }
 }
