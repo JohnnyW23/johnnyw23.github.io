@@ -32,9 +32,87 @@ body::-webkit-scrollbar-thumb {
   clear: both;
 }
 
-.top-tag_all, div.movie-wrapper .movie .image .top-tag {
+@media screen and (min-width: 1024px) {
+  .trailer-trigger:hover .play-button {
+    opacity: 1;
+  }
+  .trailer-trigger:hover .play-button .play-svg {
+    opacity: 1;
+  }
+  .trailer-trigger .play-button {
+    opacity: 0;
+    transition: 0.25s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 40%;
+    border-radius: 50%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(17, 17, 17, 0.7), rgba(51, 51, 51, 0.7));
+  }
+  .trailer-trigger .play-button .play-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    background-image: url(../assets/play-button.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+.top-tag_all, div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body .movie-banner-image .top-tag, div.movie-banner-wrapper .movie-banner .image .top-tag, div.movie-wrapper .movie .image .top-tag {
   background: linear-gradient(to left, #f00, #f00, #800);
   color: #fff;
+}
+
+.page-mask, div.trailer-mask, .descriptions, div.menu-mask {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.trailer-header_all, div.trailer-mask .movie-banner-trailer .trailer-header, .descriptions .description .description-header {
+  position: relative;
+  padding: 6px;
+  background: linear-gradient(to bottom, #0f0f0f, #191919, #222);
+}
+
+.trailer-title_all, div.trailer-mask .movie-banner-trailer .trailer-header .trailer-title, .descriptions .description .description-header .trailer-title {
+  color: white;
+  font-weight: normal;
+  font-size: 18px;
+  margin-left: 4px;
+  max-width: calc(100% - 40px);
+}
+
+.movie-release_all, div.trailer-mask .movie-banner-trailer .trailer-header .movie-release, .descriptions .description .description-header .movie-release {
+  color: #636363;
+  margin-left: 4px;
+  font-style: italic;
+}
+
+.description-close-button_all, div.trailer-mask .movie-banner-trailer .trailer-header .trailer-close-button, .descriptions .description .description-header .description-close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+  color: white;
+  background-color: black;
+  width: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.iframe-wrapper_all, div.trailer-mask .movie-banner-trailer .iframe-wrapper, .descriptions .description .iframe-wrapper {
+  background-color: #111;
+  text-align: center;
 }
 
 p {
@@ -228,15 +306,8 @@ header .container .user-area .configuracoes i {
   cursor: pointer;
 }
 
-div.page-mask {
-  display: none;
+div.menu-mask {
   z-index: 4;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
 }
 
 section.hero {
@@ -513,6 +584,37 @@ div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body::-w
 }
 div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body .movie-banner-image {
   display: none;
+  width: 100%;
+  padding: 5px;
+  position: relative;
+}
+div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body .movie-banner-image img {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body .movie-banner-image .movie-banner-image-shadow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(80% - 5px);
+  height: calc(100% - 5px);
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  cursor: pointer;
+}
+div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body .movie-banner-image .top-tag {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-top-left-radius: 30px;
+}
+div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body .movie-banner-image .top-tag p {
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: 600;
 }
 div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body .movie-rating {
   margin-top: 5px;
@@ -582,14 +684,7 @@ div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-footer a
 }
 
 .descriptions {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
   z-index: 5;
-  display: none;
 }
 .descriptions .description {
   position: relative;
@@ -602,41 +697,9 @@ div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-footer a
   z-index: 3;
   display: none;
 }
-.descriptions .description .iframe-wrapper {
-  background-color: #111;
-  text-align: center;
-}
 .descriptions .description .iframe-wrapper iframe {
   width: 80% !important;
-  height: 30vh !important;
-}
-.descriptions .description .description-header {
-  position: relative;
-  padding: 6px;
-  background: linear-gradient(to bottom, #0f0f0f, #191919, #222);
-}
-.descriptions .description .description-header h3 {
-  color: white;
-  font-weight: normal;
-  font-size: 18px;
-  margin-left: 4px;
-  max-width: calc(100% - 40px);
-}
-.descriptions .description .description-header .movie-release {
-  color: #636363;
-  margin-left: 4px;
-  font-style: italic;
-}
-.descriptions .description .description-header .description-close-button {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 18px;
-  color: white;
-  background-color: black;
-  width: 25px;
-  text-align: center;
-  cursor: pointer;
+  height: 50vh !important;
 }
 .descriptions .description .description-body {
   padding: 10px;
@@ -692,6 +755,23 @@ div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-footer a
 }
 .descriptions .description .description-footer a i {
   margin-right: 5px;
+}
+
+div.trailer-mask {
+  z-index: 5;
+}
+div.trailer-mask .movie-banner-trailer {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 90vh;
+}
+div.trailer-mask .movie-banner-trailer .iframe-wrapper iframe {
+  width: 100%;
+  height: calc(80vh - 30px);
 }
 
 footer {
@@ -790,6 +870,9 @@ div.scroll-up-button {
   cursor: pointer;
   opacity: 0.7;
   z-index: 2;
+}
+div.scroll-up-button:active {
+  background-color: #f00;
 }
 div.scroll-up-button i {
   line-height: 65px;
@@ -1060,36 +1143,7 @@ div.scroll-up-button i {
     height: auto;
   }
   div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body .movie-banner-image {
-    width: 100%;
     display: block;
-    padding: 5px;
-    position: relative;
-  }
-  div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body .movie-banner-image img {
-    width: 80%;
-    display: block;
-    margin: 0 auto;
-  }
-  div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body .movie-banner-image .movie-banner-image-shadow {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(80% - 5px);
-    height: calc(100% - 5px);
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-  }
-  div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body .movie-banner-image .top-tag {
-    width: 100%;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-  }
-  div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body .movie-banner-image .top-tag p {
-    font-size: 12px;
-    text-align: center;
-    padding: 2px 0;
-    font-weight: 600;
   }
   div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-body .movie-details {
     width: 90%;
@@ -1197,8 +1251,9 @@ div.scroll-up-button i {
     width: 50%;
   }
 }
-@media screen and (max-height: 667px) {
+@media screen and (max-height: 700px) {
   .descriptions .description .iframe-wrapper iframe {
     width: 80% !important;
+    height: 30vh !important;
   }
 }/*# sourceMappingURL=sass.css.map */
