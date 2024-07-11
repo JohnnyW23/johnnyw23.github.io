@@ -128,16 +128,20 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #3f0000;
-  border-bottom: 3px solid #180000;
+  background-color: #050505;
   z-index: 5;
+  height: 70px;
+  align-content: center;
 }
 header .container {
   display: grid;
-  grid-template-columns: 1.5fr 2.5fr 5.6fr 2.4fr;
+  grid-template-columns: 1.7fr 2.6fr 5.4fr 2.4fr;
 }
 header .container .logo {
-  padding: 15px;
+  padding: 15px 0;
+}
+header .container .logo h2 {
+  font-size: 33px;
 }
 header .container .logo a {
   color: white;
@@ -148,7 +152,8 @@ header .container .logo a i {
 header .container .search-engine {
   width: 100%;
   align-content: center;
-  padding: 15px;
+  padding: 15px 0;
+  padding-left: 10px;
   border-radius: 10px;
 }
 header .container .search-engine input {
@@ -186,7 +191,6 @@ header .container .menu-mobile {
   display: none;
 }
 header .container .menu-categorias {
-  padding: 0 10px;
   display: flex;
 }
 header .container .menu-categorias .menu-bar {
@@ -194,6 +198,7 @@ header .container .menu-categorias .menu-bar {
 }
 header .container .menu-categorias ul {
   list-style-type: none;
+  margin: 0 auto;
 }
 header .container .menu-categorias ul li {
   height: 100%;
@@ -203,7 +208,7 @@ header .container .menu-categorias ul li {
   position: relative;
 }
 header .container .menu-categorias ul li:hover {
-  background-color: #180000;
+  background-color: #1a1a1a;
 }
 header .container .menu-categorias ul li:hover .submenu {
   display: block;
@@ -224,11 +229,11 @@ header .container .menu-categorias ul li .submenu {
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: #3f0000;
+  background-color: #0f0f0f;
   z-index: 3;
 }
 header .container .menu-categorias ul li .submenu ul {
-  border-bottom: 3px solid #180000;
+  border-bottom: 3px solid #000;
 }
 header .container .menu-categorias ul li .submenu ul li {
   display: block;
@@ -238,7 +243,7 @@ header .container .menu-categorias ul li .submenu ul li a {
 }
 header .container .user-area {
   display: flex;
-  padding-inline: 10px;
+  margin: 0 auto;
 }
 header .container .user-area .user-avatar {
   width: 30px;
@@ -249,7 +254,7 @@ header .container .user-area .user-avatar {
 }
 header .container .user-area .user-avatar .notificacoes {
   position: absolute;
-  top: 10px;
+  top: 13px;
   left: -4px;
   background-color: #ff0000;
   min-width: 14px;
@@ -317,7 +322,7 @@ section.hero {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  border-bottom: 3px solid #3f0000;
+  border-bottom: 3px solid #000;
   position: relative;
   top: 58px;
 }
@@ -414,7 +419,7 @@ section.main {
   flex-wrap: wrap;
   margin: 0 auto;
   padding: 122px 2% 30px 2%;
-  background-color: #180000;
+  background-color: #030303;
 }
 
 div.movie-wrapper {
@@ -511,7 +516,7 @@ div.movie-banner-wrapper .movie-banner .image .image-shadow {
   width: 100%;
   height: calc(100% - 3px);
   border-radius: 30px 0 0 0px;
-  border-bottom: 8px solid #3f0000;
+  border-bottom: 8px solid #050505;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.85));
 }
 div.movie-banner-wrapper .movie-banner .image .top-tag {
@@ -660,8 +665,8 @@ div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-footer {
   width: 100%;
   height: 69px;
   padding: 20px;
-  border-bottom: 8px solid #3f0000;
-  background-color: #3f0000;
+  border-bottom: 8px solid #050505;
+  background-color: #060606;
   z-index: 1;
 }
 div.movie-banner-wrapper .movie-banner .movie-banner-info .movie-banner-footer h2 {
@@ -894,6 +899,9 @@ div.scroll-up-button i {
   header .container .menu-categorias {
     display: none;
   }
+  header .container .user-area {
+    margin: 0;
+  }
   header .container .menu-mobile {
     order: 1;
     padding: 0 10px;
@@ -934,7 +942,7 @@ div.scroll-up-button i {
   header .container .menu-mobile .main-ul {
     list-style-type: none;
     position: absolute;
-    top: 59px;
+    top: 70px;
     left: -250px;
     width: 250px;
     height: calc(100vh - 59px);
